@@ -169,7 +169,7 @@ export default function Contact() {
             required
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
           />
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
             {services.map((service, i) => (
               <motion.span
                 key={service}
@@ -178,18 +178,19 @@ export default function Contact() {
                 initial="hidden"
                 animate="visible"
                 transition={{ type: "spring", stiffness: 200 }}
-                className="border border-pink-100 px-4 py-2 rounded-full text-md cursor-pointer hover:border-red-500 backdrop-blur-sm w-60 text-center text-transparent bg-clip-text"
+                className="border border-pink-100 px-10 py-2 rounded-full text-md cursor-pointer hover:border-red-500 backdrop-blur-sm w-full text-center text-transparent bg-clip-text"
                 style={{
                   background:
                     "linear-gradient(94.32deg, #ABC9C9 6.17%, #DA639B 35.82%, #D8595F 67.63%, #391917 90.56%)",
-                  WebkitBackgroundClip: "text", // for Safari support
-                  WebkitTextFillColor: "transparent", // for Safari support
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                 }}
               >
                 {service}
               </motion.span>
             ))}
           </div>
+
           <textarea
             placeholder="Message"
             rows="5"

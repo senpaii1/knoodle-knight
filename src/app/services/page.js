@@ -29,7 +29,7 @@ export default function Services() {
       </section>
 
       {/* ---------------- SOLUTIONS SECTION ---------------- */}
-      <section className="pb-20 px-26 bg-black text-white mt-22">
+      <section className="pb-20 px-5 sm:px-10 md:px-26 bg-black text-white mt-22">
         <div className="max-w-[1000px] mx-auto">
           <h2 className="text-3xl md:text-5xl font-light mb-4">
             Solutions tailored to your needs

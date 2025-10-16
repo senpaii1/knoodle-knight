@@ -22,12 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${manrope.className} bg-black text-white`}>
-        <ScrollProvider>
-          <Navbar interClass={inter.className} />
-          <main className="pt-0 min-h-screen max-w-[1920px] mx-auto px-0">
-            {children}
-          </main>
-        </ScrollProvider>
+        {/* <ScrollProvider> */}
+        <Navbar interClass={inter.className} />
+        <main className="pt-0 min-h-screen max-w-[1920px] mx-auto px-0">
+          {children}
+        </main>
+        {/* </ScrollProvider> */}
       </body>
     </html>
   );
