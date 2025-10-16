@@ -10,7 +10,7 @@ body,
 body {
   @apply bg-black text-white antialiased;
   background-image: radial-gradient(
-      circle at 8% 12%,
+      circle at 8% 32%,
       rgba(255, 80, 80, 0.12),
       transparent 18%
     ),

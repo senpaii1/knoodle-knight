@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Hero() {
   return (
-    <section className="relative h-[60vh] md:h-[80vh] lg:h-screen flex items-center justify-center overflow-hidden bg-[url('/Hero.png')] bg-cover bg-center bg-no-repeat pb-10">
+    <section className="relative h-[60vh] md:h-[80vh] lg:h-screen flex items-center justify-center overflow-hidden bg-[url('/Hero.jpg')] bg-cover bg-center bg-no-repeat pb-10">
       {/* subtle gradient blobs */}
       {/* <div className="absolute left-[8%] top-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-pink-500/20 to-transparent blur-3xl pointer-events-none" />
       <div className="absolute right-[-10%] bottom-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tr from-indigo-500/10 to-transparent blur-2xl pointer-events-none" /> */}
@@ -37,13 +38,13 @@ export default function Hero() {
         </motion.p>
 
         {/* Infinity logo */}
-        <div className="absolute right-10 bottom-10 z-0 -my-[18%]">
+        <div className="absolute right-10 bottom-10 z-0 -my-[15%]">
           <Image
             src="/Infinity.svg"
             alt="Infinity"
             width={500}
             height={500}
-            className="object-contain opacity-80"
+            className="object-contain opacity-90"
           />
         </div>
       </div>

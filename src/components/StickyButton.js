@@ -19,7 +19,7 @@ export default function StickyButton() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         animate={{ width: hovered ? 180 : 56 }} // 56px = h-14
-        transition={{ type: "spring", stiffness: 300 }}
+        transition={{ type: "spring", stiffness: 90 }}
         className="flex items-center overflow-hidden rounded-full bg-yellow-400 shadow-lg h-14"
         onClick={() => router.push("/contact")}
       >

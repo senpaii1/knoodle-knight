@@ -2,9 +2,43 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const HowItWorks = () => {
   const router = useRouter();
+  const texts = ["Dream it.", "Design it.", "Experience it."];
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0); // which phrase
+  const [charIndex, setCharIndex] = useState(0); // which character
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const speed = 100; // typing speed in ms
+    let timeout;
+
+    if (!deleting && charIndex < texts[index].length) {
+      // typing
+      timeout = setTimeout(() => {
+        setText((prev) => prev + texts[index][charIndex]);
+        setCharIndex((prev) => prev + 1);
+      }, speed);
+    } else if (!deleting && charIndex === texts[index].length) {
+      // finished typing, wait before deleting
+      timeout = setTimeout(() => setDeleting(true), 1000);
+    } else if (deleting && charIndex > 0) {
+      // deleting
+      timeout = setTimeout(() => {
+        setText((prev) => prev.slice(0, -1));
+        setCharIndex((prev) => prev - 1);
+      }, speed / 2);
+    } else if (deleting && charIndex === 0) {
+      // move to next text
+      setDeleting(false);
+      setIndex((prev) => (prev + 1) % texts.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, index, texts]);
 
   const steps = [
     {
@@ -44,8 +78,12 @@ const HowItWorks = () => {
         </div>
         <div>
           <p className="mt-2 text-white/90 text-xs max-w-xl ">
-            <span className="text-3xl font-extralight"> Dream it.</span>
-            <br /> Our process is simple and transparent.
+            <span className="text-4xl font-extralight border-r-2 border-black pr-1">
+              {text}
+            </span>
+          </p>
+          <p className="mt-3 text-white/70 font-extralight text-xl">
+            Our process is simple and transparent.
             <br />
             From the first call to final delivery, we guide you at every step.
             <br />
@@ -88,11 +126,11 @@ const HowItWorks = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="mt-18 flex w-max items-center gap-3 px-4 py-2 rounded-full glass justify-center mx-auto hover:animate-inner-glow-pulse cursor-pointer"
+        className="mt-18 flex w-max items-center gap-3 px-10 py-2 rounded-full glass justify-center mx-auto hover:animate-inner-glow-pulse cursor-pointer"
         onClick={() => router.push("/contact")}
       >
         <span className="w-2 h-2 bg-pink-400 rounded-full" />
-        <span className="text-sm">Get In Touch & Book a call</span>
+        <span className="text-2xl">Get In Touch & Book a call</span>
       </motion.div>
     </section>
   );

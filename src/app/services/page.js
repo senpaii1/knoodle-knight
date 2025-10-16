@@ -8,32 +8,33 @@ export default function Services() {
   const router = useRouter();
   return (
     <>
-      <section className="w-full h-screen flex flex-col justify-center text-left text-white px-8 sm:px-16 md:px-24 bg-[radial-gradient(ellipse_at_right,_#b68a3a_0%,_#2a1d0a_45%,_#000_60%)]">
+      <section className="w-full h-screen flex flex-col justify-center text-left text-white px-8 sm:px-16 md:px-24 bg-cover bg-center bg-no-repeat bg-[url('/Services.jpg')]">
         <h1 className="text-8xl font-extralight">Dream it. Play it.</h1>
         <h1 className="text-7xl font-extralight mt-4">We’ll build it.</h1>
+
         {/* small glass CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           onClick={() => router.push("/contact")}
-          className="mt-18 flex w-max items-center gap-3 px-4 py-2 rounded-full glass justify-center cursor-pointer 
-             bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
-             transition-all duration-300 
-              hover:animate-inner-glow-pulse"
+          className="mt-18 flex w-max items-center gap-3 px-10 py-2 rounded-full glass justify-center cursor-pointer 
+       bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
+       transition-all duration-300 
+       hover:animate-inner-glow-pulse"
         >
           <span className="w-2 h-2 bg-pink-500 rounded-full shadow-[0_0_8px_2px_rgba(236,72,153,0.8)]" />
-          <span className="text-sm">Get In Touch & Book a call</span>
+          <span className="text-2xl">Get In Touch & Book a call</span>
         </motion.div>
       </section>
 
       {/* ---------------- SOLUTIONS SECTION ---------------- */}
-      <section className="pb-20 px-26 bg-black text-white">
+      <section className="pb-20 px-26 bg-black text-white mt-22">
         <div className="max-w-[1000px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
             Solutions tailored to your needs
           </h2>
-          <p className="text-gray-400 mb-12 max-w-3xl">
+          <p className="text-gray-400 mb-12 max-w-4xl text-xl">
             We are a full-service creative and development studio dedicated to
             helping brands, studios, and innovators build extraordinary games
             and digital products. Our team blends technology and creativity —
@@ -82,15 +83,15 @@ export default function Services() {
               >
                 <Image
                   src={src}
-                  width={20}
-                  height={20}
-                  className="mb-0.5"
+                  width={30}
+                  height={30}
+                  className="mb-1.5"
                   alt="icons"
                 />
-                <h3 className="text-md font-extralight mb-2 text-white">
+                <h3 className="text-md font-extralight mb-2 text-white text-2xl">
                   {title}
                 </h3>
-                <p className="text-xs text-gray-400">{desc}</p>
+                <p className="text-sm text-gray-400">{desc}</p>
               </div>
             ))}
           </div>

@@ -23,7 +23,10 @@ export default function About() {
       </section>
 
       {/* MAIN ABOUT CONTENT */}
-      <section className="max-w-[1850px] mx-auto px-6 py-24 text-gray-200 space-y-24">
+      <section
+        className="max-w-[1800px] mx-auto px-6 py-24 text-gray-200 space-y-24 
+          bg-cover bg-no-repeat bg-[url('/about-us-down.png')] bg-[position:center_0%]"
+      >
         {/* 1️⃣ Row 1 — About Us */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
@@ -32,7 +35,7 @@ export default function About() {
               About Us
             </h2>
 
-            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl">
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl max-w-3xl">
               At Knoodle Knight, we bring imagination and technology together to
               build extraordinary digital experiences. We’re a team of
               passionate developers, game designers, UI/UX designers, 2D & 3D
@@ -57,13 +60,13 @@ export default function About() {
         </div>
 
         {/* 2️⃣ Row 2 — Our Approach & Mission */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-start">
           {/* Left: Our Approach */}
           <div>
             <h2 className="text-3xl lg:text-7xl sm:text-4xl font-extralight mb-4 text-white">
               Our Approach
             </h2>
-            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl">
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl max-w-3xl">
               At Knoodle Knight, we believe in simplicity, transparency, and
               collaboration. We partner closely with clients to understand their
               goals, align on strategy, and ensure every stage — from design to
@@ -76,7 +79,7 @@ export default function About() {
             <h2 className="text-3xl lg:text-7xl sm:text-4xl font-extralight mb-4 text-white">
               Our Mission
             </h2>
-            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl">
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl max-w-3xl">
               To empower creators and businesses by blending creativity with
               technology, helping them bring their vision to life through
               design, art, and innovation.
@@ -91,19 +94,19 @@ export default function About() {
             <h2 className="text-3xl lg:text-7xl sm:text-4xl font-extralight mb-4 text-white">
               Our Vision
             </h2>
-            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl">
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg lg:text-xl max-w-3xl">
               To be a global creative-technology studio recognized for
               transforming ideas into powerful, interactive experiences.
             </p>
           </div>
 
           {/* Right: Image */}
-          <div className="flex justify-end">
+          <div className="absolute right-0 bottom-0 my-[-50%] flex justify-end w-full pointer-events-none">
             <Image
               src="/design.svg"
               alt="Design"
-              width={200}
-              height={200}
+              width={300}
+              height={300}
               className="object-contain opacity-80 rotate-180"
             />
           </div>

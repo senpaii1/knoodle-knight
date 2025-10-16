@@ -5,7 +5,7 @@ import Lenis from "@studio-freight/lenis";
 export default function ScrollProvider({ children }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.1,
       easing: (t) => t, // ease linear-like; tweak for feel
       smooth: true,
     });
