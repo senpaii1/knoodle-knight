@@ -39,7 +39,7 @@ export default function Hero() {
         {/* Infinity logo */}
         <div className="absolute right-10 bottom-10 z-0 -my-[18%]">
           <Image
-            src="/infinity.svg"
+            src="/Infinity.svg"
             alt="Infinity"
             width={500}
             height={500}
