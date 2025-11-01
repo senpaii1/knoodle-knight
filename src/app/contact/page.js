@@ -176,7 +176,7 @@ export default function Contact() {
             required
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
             {services.map((service, i) => (
               <motion.span
                 key={service}
