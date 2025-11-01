@@ -33,12 +33,12 @@ export default function Contact() {
       );
   };
   const services = [
-    "Design",
-    "Development",
+    "Game Design",
+    "Develop",
     "Animation",
     "2D Assets",
     "3D Assets",
-    "Multiplayer",
+    "UI/UX Design",
   ];
 
   const fadeUp = {
@@ -78,7 +78,11 @@ export default function Contact() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          onClick={() => console.log("clicked")}
+          onClick={() => {
+            document
+              .getElementById("contact-form")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
           className="relative z-10 mt-6 flex items-center gap-3 px-10 py-3 rounded-full glass cursor-pointer 
  bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
  transition-all duration-300 
@@ -100,7 +104,10 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="mt-20 relative min-h-[80vh] w-full flex flex-col md:flex-row justify-between items-start bg-black text-white px-8 sm:px-16 md:px-24 overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/ContactUsDown.png')]">
+      <section
+        id="contact-form"
+        className="mt-20 relative min-h-[80vh] w-full flex flex-col md:flex-row justify-between items-start bg-black text-white px-8 sm:px-16 md:px-24 overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/ContactUsDown.png')]"
+      >
         {/* LEFT SIDE */}
         <div className="w-full md:w-1/2 mb-12 md:mb-0 relative z-10 mt-8">
           <motion.h1
@@ -150,7 +157,7 @@ export default function Contact() {
         >
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Name*"
             name="name"
             required
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
@@ -158,14 +165,14 @@ export default function Contact() {
           <input
             type="tel"
             name="phone"
-            placeholder="Mobile Number"
+            placeholder="Mobile Number*"
             required
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
           />
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder="Email Address*"
             required
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
           />
@@ -192,7 +199,7 @@ export default function Contact() {
           </div>
 
           <textarea
-            placeholder="Message"
+            placeholder="Message*"
             rows="5"
             name="message"
             className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none resize-none"

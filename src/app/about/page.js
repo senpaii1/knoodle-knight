@@ -1,4 +1,6 @@
 import Image from "next/image";
+import StickyButton from "@/components/StickyButton";
+
 export default function About() {
   return (
     <>
@@ -28,7 +30,7 @@ export default function About() {
           bg-cover bg-no-repeat bg-[url('/about-us-down.png')] bg-[position:center_0%]"
       >
         {/* 1️⃣ Row 1 — About Us */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
           {/* Left: Text */}
           <div>
             <h2 className="text-4xl sm:text-5xl lg:text-7xl font-extralight mb-4 text-white">
@@ -112,6 +114,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <StickyButton />
     </>
   );
 }

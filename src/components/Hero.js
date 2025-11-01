@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute right-[-10%] bottom-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tr from-indigo-500/10 to-transparent blur-2xl pointer-events-none" /> */}
       <div className="absolute inset-0 bg-gradient-to-l from-black/100 via-transparent to-transparent" />
       {/* dark overlay for strong contrast */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/5" />
       {/* dark overlay for strong contrast */}
       <div className="absolute inset-0 bg-gradient-to-b to-black/90" />
 
@@ -20,7 +20,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-10xl md:text-8xl font-light tracking-tight"
+          className="text-10xl md:text-9xl font-light tracking-tight"
         >
           <span className="tracking-wide">Knoodle</span>{" "}
           <span className="font-extrabold">Knight</span>
@@ -30,7 +30,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-6 text-2xl text-gray-300 max-w-2xl font-extralight"
+          className="mt-6 text-5xl text-gray-300 max-w-7xl font-extralight leading-normal"
         >
           Complete Game Development & Creative Services
           <br />

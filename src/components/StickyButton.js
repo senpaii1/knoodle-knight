@@ -21,7 +21,7 @@ export default function StickyButton() {
         animate={{ width: hovered ? 180 : 56 }} // 56px = h-14
         transition={{ type: "spring", stiffness: 90 }}
         className="flex items-center overflow-hidden rounded-full bg-yellow-400 shadow-lg h-14"
-        onClick={() => router.push("/contact")}
+        onClick={() => router.push("/contact#contact-form")}
       >
         {/* Avatar */}
         <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden">

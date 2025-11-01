@@ -127,7 +127,7 @@ const HowItWorks = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
         className="mt-18 flex w-max items-center gap-3 px-10 py-2 rounded-full glass justify-center mx-auto hover:animate-inner-glow-pulse cursor-pointer"
-        onClick={() => router.push("/contact")}
+        onClick={() => router.push("/contact#contact-form")}
       >
         <span className="w-2 h-2 bg-pink-400 rounded-full" />
         <span className="text-2xl">Get In Touch & Book a call</span>

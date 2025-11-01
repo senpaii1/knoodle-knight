@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import StickyButton from "@/components/StickyButton";
 
 export default function Services() {
   const router = useRouter();
@@ -13,11 +14,11 @@ export default function Services() {
         <h1 className="text-7xl font-extralight mt-4">We’ll build it.</h1>
 
         {/* small glass CTA */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          onClick={() => router.push("/contact")}
+          onClick={() => router.push("/contact#contact-form")}
           className="mt-18 flex w-max items-center gap-3 px-10 py-2 rounded-full glass justify-center cursor-pointer 
        bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
        transition-all duration-300 
@@ -25,12 +26,12 @@ export default function Services() {
         >
           <span className="w-2 h-2 bg-pink-500 rounded-full shadow-[0_0_8px_2px_rgba(236,72,153,0.8)]" />
           <span className="text-2xl">Get In Touch & Book a call</span>
-        </motion.div>
+        </motion.div> */}
       </section>
 
       {/* ---------------- SOLUTIONS SECTION ---------------- */}
       <section className="pb-20 px-5 sm:px-10 md:px-26 bg-black text-white mt-22">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-[1000px] mx-auto cursor-default">
           <h2 className="text-3xl md:text-5xl font-light mb-4">
             Solutions tailored to your needs
           </h2>
@@ -133,6 +134,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <StickyButton />
     </>
   );
 }
