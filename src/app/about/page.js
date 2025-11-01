@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative flex flex-col items-center justify-center text-center text-white min-h-[70vh]">
+      <section className="relative flex flex-col items-center justify-center text-center text-white min-h-[90vh]">
         {/* Rotated background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat rotate-0"
