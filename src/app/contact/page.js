@@ -8,6 +8,16 @@ import emailjs from "@emailjs/browser";
 export default function Contact() {
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
+  const [selectedServices, setSelectedServices] = useState([]);
+
+  const toggleService = (service) => {
+    setSelectedServices((prev) =>
+      prev.includes(service)
+        ? prev.filter((s) => s !== service)
+        : [...prev, service]
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -24,6 +34,7 @@ export default function Contact() {
           alert("Message sent successfully!");
           setLoading(false);
           e.target.reset(); // clear form
+          setSelectedServices([]);
         },
         (error) => {
           console.error(error.text);
@@ -191,25 +202,37 @@ export default function Contact() {
 
           {/* Services Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
-            {services.map((service, i) => (
-              <motion.span
-                key={service}
-                variants={fadeUp}
-                custom={i * 0.2}
-                initial="hidden"
-                animate="visible"
-                transition={{ type: "spring", stiffness: 200 }}
-                className="border border-pink-100 px-10 py-2 rounded-full text-md cursor-pointer hover:border-red-500 backdrop-blur-sm w-full text-center text-transparent bg-clip-text"
-                style={{
-                  background:
-                    "linear-gradient(94.32deg, #ABC9C9 6.17%, #DA639B 35.82%, #D8595F 67.63%, #391917 90.56%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                {service}
-              </motion.span>
-            ))}
+            {services.map((service, i) => {
+              const isSelected = selectedServices.includes(service);
+              return (
+                <motion.span
+                  key={service}
+                  variants={fadeUp}
+                  custom={i * 0.2}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ type: "spring", stiffness: 200 }}
+                  onClick={() => toggleService(service)}
+                  className={`border px-10 py-2 rounded-full text-md cursor-pointer backdrop-blur-sm w-full text-center transition-all duration-300 ${
+                    isSelected
+                      ? "border-red-500 text-red-400"
+                      : "border-pink-100 text-transparent bg-clip-text"
+                  }`}
+                  style={
+                    !isSelected
+                      ? {
+                          background:
+                            "linear-gradient(94.32deg, #ABC9C9 6.17%, #DA639B 35.82%, #D8595F 67.63%, #391917 90.56%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : {}
+                  }
+                >
+                  {service}
+                </motion.span>
+              );
+            })}
           </div>
 
           {/* Floating Textarea */}
@@ -234,6 +257,12 @@ export default function Contact() {
               Message*
             </label>
           </div>
+
+          <input
+            type="hidden"
+            name="services"
+            value={selectedServices.join(", ")} // comma-separated list
+          />
 
           {/* Submit Button */}
           <motion.button
