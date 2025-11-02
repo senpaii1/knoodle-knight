@@ -54,6 +54,13 @@ export default function Contact() {
     }),
   };
 
+  const handleAutoResize = (e) => {
+    const textarea = e.target;
+    textarea.style.height = "auto"; // reset height
+    const maxHeight = 5 * 24; // 5 lines * ~24px line height
+    textarea.style.height = `${Math.min(textarea.scrollHeight, maxHeight)}px`;
+  };
+
   return (
     <>
       <section
@@ -84,9 +91,9 @@ export default function Contact() {
               ?.scrollIntoView({ behavior: "smooth" });
           }}
           className="relative z-10 mt-6 flex items-center gap-3 px-10 py-3 rounded-full glass cursor-pointer 
- bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
- transition-all duration-300 
- hover:animate-inner-glow-pulse"
+                  bg-[#111]/40 backdrop-blur-sm border border-pink-500/20 text-white 
+                  transition-all duration-300 
+                  hover:animate-inner-glow-pulse"
         >
           <span className="w-2 h-2 bg-pink-500 rounded-full shadow-[0_0_8px_2px_rgba(236,72,153,0.8)]" />
           <span className="text-2xl">Get In Touch & Book a call</span>
@@ -151,31 +158,38 @@ export default function Contact() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.6 }}
-          className="w-full md:w-1/2 flex flex-col gap-5 p-8 rounded-2xl bg-transparent relative z-10 backdrop-blur-none border-none"
+          className="w-full md:w-1/2 flex flex-col gap-8 p-8 rounded-2xl bg-transparent relative z-10 backdrop-blur-none border-none"
           onSubmit={handleSubmit}
           ref={formRef}
         >
-          <input
-            type="text"
-            placeholder="Name*"
-            name="name"
-            required
-            className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Mobile Number*"
-            required
-            className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address*"
-            required
-            className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none"
-          />
+          {/* Floating Input Fields */}
+          {[
+            { name: "name", type: "text", label: "Name*" },
+            { name: "phone", type: "tel", label: "Mobile Number*" },
+            { name: "email", type: "email", label: "Email Address*" },
+          ].map(({ name, type, label }) => (
+            <div key={name} className="relative w-full">
+              <input
+                type={type}
+                name={name}
+                id={name}
+                required
+                placeholder=" "
+                className="peer w-full bg-transparent border-b border-gray-600 text-white placeholder-transparent focus:border-red-500 outline-none py-3"
+              />
+              <label
+                htmlFor={name}
+                className="absolute left-0 top-3 text-gray-400 transition-all duration-300 ease-in-out 
+          peer-placeholder-shown:top-3 peer-placeholder-shown:text-base
+          peer-focus:-top-1 peer-focus:text-sm peer-focus:text-red-500
+          peer-not-placeholder-shown:-top-1 peer-not-placeholder-shown:text-sm"
+              >
+                {label}
+              </label>
+            </div>
+          ))}
+
+          {/* Services Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 justify-items-center mx-auto max-w-5xl">
             {services.map((service, i) => (
               <motion.span
@@ -198,14 +212,30 @@ export default function Contact() {
             ))}
           </div>
 
-          <textarea
-            placeholder="Message*"
-            rows="5"
-            name="message"
-            className="input-field bg-transparent border-b border-gray-600 focus:border-red-500 text-white placeholder-gray-400 outline-none resize-none"
-            required
-          ></textarea>
+          {/* Floating Textarea */}
+          <div className="relative w-full">
+            <textarea
+              name="message"
+              id="message"
+              rows="1"
+              placeholder=" "
+              required
+              onInput={handleAutoResize}
+              className="peer w-full bg-transparent border-b border-gray-600 text-white placeholder-transparent focus:border-red-500 outline-none resize-none py-3 overflow-hidden"
+              style={{ minHeight: "24px", lineHeight: "24px" }}
+            ></textarea>
+            <label
+              htmlFor="message"
+              className="absolute left-0 top-3 text-gray-400 transition-all duration-300 ease-in-out 
+      peer-placeholder-shown:top-3 peer-placeholder-shown:text-base
+      peer-focus:-top-1 peer-focus:text-sm peer-focus:text-red-500
+      peer-not-placeholder-shown:-top-1 peer-not-placeholder-shown:text-sm"
+            >
+              Message*
+            </label>
+          </div>
 
+          {/* Submit Button */}
           <motion.button
             type="submit"
             disabled={loading}
